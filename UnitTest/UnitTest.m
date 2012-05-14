@@ -39,9 +39,10 @@ UnitTest[Test_, ExpectedResult_, OptionsPattern[]] := Module[{Result = Null},
     ]
 ];
 
-UnitTestSummary[] := Module[{failedTests, passedTests},
-    failedTests = Select[Names["Global`*"], Head[Symbol[#]] == UnitTestFailed && # != "UTFailed" && # != "UTPass" &];
-    passedTests = Select[Names["Global`*"], Head[Symbol[#]] == UnitTestPassed && # != "UTFailed" && # != "UTPass" &];
+UnitTestSummary[TestSuite_:None] := Module[{failedTests, passedTests, testList},
+    testList = If[TestSuite == None, Names["Global`*"], TestSuite];
+    failedTests = Select[testList, Head[Symbol[#]] == UnitTestFailed && # != "UTFailed" && # != "UTPass" &];
+    passedTests = Select[testList, Head[Symbol[#]] == UnitTestPassed && # != "UTFailed" && # != "UTPass" &];
 
     If[!$BatchOutput,
         TabView[{
@@ -57,8 +58,10 @@ UnitTestSummary[] := Module[{failedTests, passedTests},
             If[Length[passedTests] > 0, "Passed tests (" <> ToString[Length[passedTests]] <> ")", "Passed tests"] -> Column[Text["\[Bullet] " <> #]&/@passedTests]
         }
         ],
+        Print["-------------------"];
+        If[TestSuite != None, Print["Test Suite: " <> Name[TestList]], Null];
         Print["Tests: " <> ((Length[failedTests]+Length[passedTests])//ToString) <> " Passed: " <> (Length[passedTests]//ToString) <> " Failed: " <> (Length[failedTests]//ToString) <> "\n"];
-        Print["Failed tests:  " <> Join[failedTests]];
+        Print["Failed tests: " <> Join[failedTests]];
         Print["Passed tests: " <> Join[passedTests]];
     ]
 ];
