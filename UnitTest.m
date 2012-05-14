@@ -43,9 +43,9 @@ UnitTestSummary[] := Module[{failedTests, passedTests},
     failedTests = Select[Names["Global`*"], Head[Symbol[#]] == UnitTestFailed && # != "UTFailed" && # != "UTPass" &];
     passedTests = Select[Names["Global`*"], Head[Symbol[#]] == UnitTestPassed && # != "UTFailed" && # != "UTPass" &];
 
-    Off[FrontEndObject::notavail];
+    If[!$BatchOutput,
         TabView[{
-           If[Length[failedTests] > 0, Style["Failed tests (" <> ToString[Length[failedTests]] <> ")", Red], "Failed tests"] -> Column[OpenerView[{#, 
+           If[Length[failedTests] > 0, Style["Failed tests (" <> ToString[Length[failedTests]] <> ")", Red], "Failed tests"] -> Column[OpenerView[{Text[#], 
                                 Grid[{{Text["Expected result: "], Level[Symbol[#], 1][[2]]},
                                       {Text["Actual result:"],  
                                         Row[
@@ -56,9 +56,11 @@ UnitTestSummary[] := Module[{failedTests, passedTests},
                                }]&/@failedTests],
             If[Length[passedTests] > 0, "Passed tests (" <> ToString[Length[passedTests]] <> ")", "Passed tests"] -> Column[Text["\[Bullet] " <> #]&/@passedTests]
         }
-        ]
-    (*Print["Failed tests = " <> Join[failedTests]];
-    Print["Passed tests = " <> Join[passedTests]];*)
+        ],
+        Print["Tests: " <> ((Length[failedTests]+Length[passedTests])//ToString) <> " Passed: " <> (Length[passedTests]//ToString) <> " Failed: " <> (Length[failedTests]//ToString) <> "\n"];
+        Print["Failed tests:  " <> Join[failedTests]];
+        Print["Passed tests: " <> Join[passedTests]];
+    ]
 ];
 
 End[];
