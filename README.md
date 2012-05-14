@@ -17,12 +17,12 @@ A unit test is then defined by the following:
 
     UTMyFirstUnitTest = UnitTest[1+1, 2];
 
-The first argument to `UnitTest[]` is the expression to check, the second the expected result.
-When you execute this, Mathematica will show `Passed` or `FAILED`.
+The first argument to *UnitTest[]* is the expression to check, the second the expected result.
+When you execute this, Mathematica will show _Passed_ or _FAILED_.
 
-If you have many unit tests defined in your notebook or .m file, UnitTestSummary[] comes in handy:
+If you have many unit tests defined in your notebook or .m file, *UnitTestSummary[]* comes in handy:
 It will collect all unit test and show you in a convenient manner which test succeeded and which failed - and where.
-You can also use UnitTestSummary[] in a Mathematica script, it will then not use GUI elements but output the stats in a machine-readable manner, which is useful for automated building or continous integration.
+You can also use *UnitTestSummary[]* in a Mathematica script, it will then not use GUI elements but output the stats in a machine-readable manner, which is useful for automated building or continous integration.
 
 For more advanced examples, see the `Examples/` directory of this repository.
 
