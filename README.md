@@ -9,7 +9,8 @@ UnitTest is a lean unit testing framework for Mathematica.
 * create a symbolic link to the `UnitTest` directory of this package in your `Mathematica/Applications` or `Mathematica/Autoload` directory. On Mac OS X, you can find this directory in ~username/Library/Mathematica, on Linux it's located in ~username/.mathematica
 
 # The road runners guide to Mathematica Unit Testing
-You can load the package in Mathematica via `<<UnitTest``.
+You can load the package in Mathematica via 
+    `<<UnitTest`
 A unit test is then defined by the following:
     UTMyFirstUnitTest = UnitTest[1+1, 2];
 The first argument to `UnitTest[]` is the expression to check, the second the expected result.
