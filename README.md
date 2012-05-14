@@ -10,9 +10,13 @@ UnitTest is a lean unit testing framework for Mathematica.
 
 # The road runners guide to Mathematica Unit Testing
 You can load the package in Mathematica via 
+
     <<UnitTest`
+
 A unit test is then defined by the following:
+
     UTMyFirstUnitTest = UnitTest[1+1, 2];
+
 The first argument to `UnitTest[]` is the expression to check, the second the expected result.
 When you execute this, Mathematica will show `Passed` or `FAILED`.
 
