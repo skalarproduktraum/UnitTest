@@ -1,0 +1,6 @@
+#!/Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script
+<<UnitTest.m
+
+Test1Plus1 = UnitTest[1+1, 2];
+
+UnitTestSummary[]
