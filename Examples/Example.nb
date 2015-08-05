@@ -1,0 +1,213 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5470,        204]
+NotebookOptionsPosition[      4501,        163]
+NotebookOutlinePosition[      4858,        179]
+CellTagsIndexPosition[      4815,        176]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Initialization", "Section",
+ CellChangeTimes->{{3.6477772909916077`*^9, 3.647777303451405*^9}}],
+
+Cell[TextData[{
+ "Preferably, you would add the ",
+ StyleBox["../UnitTest/", "Output"],
+ " directory to your Mathematica path. You could then simply load the package \
+by running ",
+ StyleBox["<< UnitTest`", "Input"],
+ " without resorting to actual paths."
+}], "Text",
+ CellChangeTimes->{{3.647777483192807*^9, 3.647777537265562*^9}, {
+  3.647777637864057*^9, 3.647777639221004*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}], "\n", 
+ RowBox[{"<<", "../UnitTest/UnitTest.m"}]}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.6477772427130404`*^9, 3.6477772528965073`*^9}, 
+   3.647777314275155*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Simple examples", "Section",
+ CellChangeTimes->{{3.6477773240412817`*^9, 3.647777334791604*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AdditionTest", "=", 
+   RowBox[{"UnitTest", "[", 
+    RowBox[{
+     RowBox[{"1", "+", "1"}], ",", "2"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.647777267488173*^9, 3.647777289024238*^9}, {
+  3.647777341088711*^9, 3.6477773512403793`*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"Pass\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[0, 
+    Rational[2, 3], 0],
+  FrontFaceColor->RGBColor[0, 
+    Rational[2, 3], 0],
+  BackFaceColor->RGBColor[0, 
+    Rational[2, 3], 0],
+  GraphicsColor->RGBColor[0, 
+    Rational[2, 3], 0],
+  FontWeight->Bold,
+  FontColor->RGBColor[0, 
+    Rational[2, 3], 0]]], "Print",
+ CellChangeTimes->{3.6477773517328444`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"IntegrationTest", "=", 
+   RowBox[{"UnitTest", "[", 
+    RowBox[{
+     RowBox[{"Integrate", "[", 
+      RowBox[{"x", ",", "x"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{"1", "/", "2"}], 
+      RowBox[{"x", "^", "2"}]}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6477773548532743`*^9, 3.647777381816414*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"Pass\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[0, 
+    Rational[2, 3], 0],
+  FrontFaceColor->RGBColor[0, 
+    Rational[2, 3], 0],
+  BackFaceColor->RGBColor[0, 
+    Rational[2, 3], 0],
+  GraphicsColor->RGBColor[0, 
+    Rational[2, 3], 0],
+  FontWeight->Bold,
+  FontColor->RGBColor[0, 
+    Rational[2, 3], 0]]], "Print",
+ CellChangeTimes->{{3.6477773780332737`*^9, 3.647777382111745*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ThisWillFail", "=", 
+   RowBox[{"UnitTest", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Clear", "[", "\[Epsilon]", "]"}], ";", 
+      RowBox[{"\[Epsilon]", "<", "0"}]}], ",", "True"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6477773875828667`*^9, 3.6477774200626497`*^9}, {
+  3.6477774548554487`*^9, 3.647777458473361*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"FAILED\"\>",
+  StripOnInput->False,
+  LineColor->RGBColor[
+    Rational[2, 3], 0, 0],
+  FrontFaceColor->RGBColor[
+    Rational[2, 3], 0, 0],
+  BackFaceColor->RGBColor[
+    Rational[2, 3], 0, 0],
+  GraphicsColor->RGBColor[
+    Rational[2, 3], 0, 0],
+  FontWeight->Bold,
+  FontColor->RGBColor[
+    Rational[2, 3], 0, 0]]], "Print",
+ CellChangeTimes->{{3.64777741640917*^9, 3.6477774205708523`*^9}, {
+  3.6477774561607733`*^9, 3.647777459748762*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Unit Test Result Summary", "Section",
+ CellChangeTimes->{{3.6477774243823633`*^9, 3.647777433080326*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"UnitTestSummary", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.64777743491695*^9, 3.647777448661199*^9}}],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   $CellContext`UnitTestSummary[], StandardForm],
+  ImageSizeCache->{220., {35., 40.}}]], "Output",
+ CellChangeTimes->{{3.6477774381565647`*^9, 3.647777449155815*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 267}, {Automatic, 115}},
+FrontEndVersion->"10.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 23, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 101, 1, 64, "Section"],
+Cell[684, 25, 383, 9, 51, "Text"],
+Cell[1070, 36, 298, 7, 46, "Input",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1405, 48, 102, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[1532, 53, 282, 7, 28, "Input"],
+Cell[1817, 62, 400, 14, 21, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2254, 81, 351, 10, 28, "Input"],
+Cell[2608, 93, 424, 14, 21, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3069, 112, 373, 10, 28, "Input"],
+Cell[3445, 124, 476, 15, 21, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3970, 145, 111, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[4106, 150, 162, 3, 28, "Input"],
+Cell[4271, 155, 202, 4, 92, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
